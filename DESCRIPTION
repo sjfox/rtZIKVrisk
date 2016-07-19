@@ -7,7 +7,7 @@ Description: The package simulates zika outbreaks according to the Real-time
     simulations. Includes data and scripts to create the figures from the paper.
 URL: http://github.com/sjfox/rtZIKVrisk/
 Depends:
-    R (>= 3.3.0)
+    R (>= 3.2.4)
 License: MIT
 Encoding: UTF-8
 LazyData: true
