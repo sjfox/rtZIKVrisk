@@ -4,7 +4,19 @@
 \name{exp_triggers_data}
 \alias{exp_triggers_data}
 \title{County surveillance triggers}
-\format{An object of class \code{data.frame} with 149 rows and 9 columns.}
+\format{A dataframe with 149 rows and 9 variables:
+\describe{
+  \item{r_not}{Texas county r0}
+  \item{disc_prob}{daily probability of being reported in simulation}
+  \item{intro_rate}{daily rate of introductions for simulation}
+  \item{prev_threshold}{threshold for prevalence analysis -- not used anymore}
+  \item{epi_threshold}{prevalence threshold to define epidemic}
+  \item{confidence}{threshold probability for triggers}
+  \item{num_necessary}{Number of simulations necessary to reach certain number of cases to have trigger}
+  \item{epi_trigger}{Trigger for reported cases necssary to have 50\% probability of epidemic}
+  \item{prev_trigger}{Trigger for prevalence -- no longer used}
+  ...
+}}
 \source{
 county simulation data 50% probability of an epidemic
 }

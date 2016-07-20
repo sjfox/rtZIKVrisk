@@ -4,7 +4,16 @@
 \name{prev_by_reported_data}
 \alias{prev_by_reported_data}
 \title{Prevalence by reported cases data}
-\format{An object of class \code{data.frame} with 404 rows and 6 columns.}
+\format{A dataframe with 404 rows and 6 variables:
+\describe{
+  \item{risk_level}{risk level for simulation "High Risk" or "1.1"}
+  \item{disc_prob}{reporting rate of simulation}
+  \item{detected}{Number of reported autochthonous cases}
+  \item{median}{median autochthonous prevalence upon seeing x reported cases}
+  \item{min}{minimum of 50\% CI for prevalence}
+  \item{max}{maximum of 50\% CI for prevalence}
+  ...
+}}
 \source{
 Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or high risk group
 }

@@ -27,13 +27,13 @@ Once the package has been installed, it can be loaded with
 ```
 
 ## Simulating Zika outbreaks
-The package allows one to simulate outbreaks according to the Zika outbreak simulation model presented in our paper, according to default parameters or other combinations. Normally we use the `run_n_zika_sims()` function to run multiple outbreaks, so let's run 10 stochastic realizations with the default parameter values.
+The package allows one to simulate outbreaks according to the Zika outbreak simulation model presented in our paper, according to default parameters or other combinations. Normally we use the `run_n_zika_sims()` function to run multiple outbreaks, so let's run 10 stochastic realizations with the default parameter values, and plot the histogram of final sizes, and the number of reported autochthonous (locally transmitted) cases.
 
-```{r}
+```{r, fig.width=6}
   set.seed(808)
   sim_parms <- zika_def_parms()
   outbreak_sim <- run_n_zika_sims(num_reps = 10, sim_parms)
   plot_final_sizes(outbreak_sim)
-  #plot_outbreaks(outbreak_sim)
+  plot_zika_outbreaks(outbreak_sim)
   
 ```

@@ -34,6 +34,65 @@ zika_def_parms <- function(r_not = 1.1,
 }
 
 
+#' Get County-specific parameters
+#'
+#' A function that finds the correct parameters for a specified county to be used for zika outbreak simulations
+#'
+#' @param county Integer or character string identifying either the county id number or the county name
+#' @param worst_case Boolean describing whether to use the worst-case importation rate estimates or the expected
+#' @param ... Function can take any other arguments to zika_def_parms
+#' @inheritParams zika_def_parms
+#' @return A list of length num_reps, where each component is a single call to run_zika_sim.
+#' @export
+#' @examples
+#' get_county_parms("travis")
+#' get_county_parms(15)
+#' get_county_parms("travis", e_thresh=1000)
+get_county_parms <- function(county, worst_case=FALSE, ... ){
+  if(is.numeric(county)){
+    if(county>254 | county<1) stop("County index is out of bounds")
+    county_ind <- match(county, table = county_risk_data$id)
+
+    # If no match, throw an error
+    if(is.na(count_ind)){
+      stop("Couldn't find a match for that number, sorry! - Maybe it wasn't a rounded number?")
+    }
+  } else if(is.character(county)) {
+
+    # send everything tolower, for easer matching
+    county_ind <- grep(tolower(county), tolower(county_risk_data$Geography))
+
+    # If no matches or more than one, then throw an error
+    if(length(county_ind) == 0){
+      stop("Couldn't find a match for that county, sorry!")
+    } else if(length(county_ind) > 1){
+      stop("Found too many matches for that county, try being more specific!")
+    }
+  } else{
+    stop("invalid county type")
+  }
+
+  r_not <- county_risk_data$rnott.expected.round[county_ind]
+  import_rate <- ifelse(identical(worst_case, FALSE), county_risk_data$importation.projected[county_ind],
+                                                      county_risk_data$importation.worse.projected[county_ind])
+
+
+  if("r_not" %in% names(list(...)) & "intro_rate" %in% names(list(...))){
+    warning("You are defining r_not and intro_rate explicitly, which will override both county-specific values.")
+    zika_def_parms(...)
+  } else if("r_not" %in% names(list(...))){
+    warning("You are defining r_not explicitly, which will override the county-specific value.")
+    zika_def_parms(intro_rate=import_rate, ...)
+  }else if("intro_rate" %in% names(list(...))){
+    warning("You are defining intro_rate explicitly, which will override the county-specific value.")
+    zika_def_parms(r_not=r_not, ...)
+  } else{
+    zika_def_parms(intro_rate=import_rate, r_not=r_not, ...)
+  }
+}
+
+
+
 #' Run multiple zika simulations
 #'
 #' A function to run multiple zika simulations with the same parameters

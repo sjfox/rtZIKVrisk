@@ -90,8 +90,8 @@
 #'   \item{disc_prob}{reporting rate of simulation}
 #'   \item{detected}{Number of reported autochthonous cases}
 #'   \item{median}{median autochthonous prevalence upon seeing x reported cases}
-#'   \item{min}{minimum of 50% CI for prevalence}
-#'   \item{max}{maximum of 50% CI for prevalence}
+#'   \item{min}{minimum of 50\% CI for prevalence}
+#'   \item{max}{maximum of 50\% CI for prevalence}
 #'   ...
 #' }
 #' @source Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or high risk group
@@ -159,9 +159,9 @@
 #'
 #' @format A spatial dataset for all 254 Texas counties
 #' \describe{
-#'
+#' \item{counties}{Texas shapefile object, used to plot maps}
 #' }
-#' @source
+#' @source online
 "texas_county_shp"
 
 #' County Detection probability
@@ -210,7 +210,7 @@
 #'   \item{epi_threshold}{prevalence threshold to define epidemic}
 #'   \item{confidence}{threshold probability for triggers}
 #'   \item{num_necessary}{Number of simulations necessary to reach certain number of cases to have trigger}
-#'   \item{epi_trigger}{Trigger for reported cases necssary to have 50% probability of epidemic}
+#'   \item{epi_trigger}{Trigger for reported cases necssary to have 50\% probability of epidemic}
 #'   \item{prev_trigger}{Trigger for prevalence -- no longer used}
 #'   ...
 #' }

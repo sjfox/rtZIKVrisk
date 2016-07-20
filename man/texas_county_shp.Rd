@@ -6,8 +6,11 @@
 \title{Texas county map}
 \format{A spatial dataset for all 254 Texas counties
 \describe{
-
+\item{counties}{Texas shapefile object, used to plot maps}
 }}
+\source{
+online
+}
 \usage{
 texas_county_shp
 }
