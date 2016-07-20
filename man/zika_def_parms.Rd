@@ -6,8 +6,8 @@
 \usage{
 zika_def_parms(r_not = 1.1, infBoxes = 3, incBoxes = 6,
   recov_p = 0.3040571/(3/infBoxes), incub_rate = 0.583917, prop_p = r_not
-  * recov_p/infBoxes, e_thresh = 2000, prob_symp = 1,
-  dis_prob_symp = 0.01, dis_prob_asymp = 0, intro_rate = 0)
+  * recov_p/infBoxes, e_thresh = 100, prob_symp = 1, dis_prob_symp = 0.01,
+  dis_prob_asymp = 0, intro_rate = 0.01)
 }
 \arguments{
 \item{r_not}{value specifying outbreak R0, which automatically modulates transmission rate}
@@ -41,6 +41,6 @@ Defaults to parameters for Zika with no introductions.
 }
 \examples{
 zika_def_parms()
-zika_def_parms(r_not=1.6)
+zika_def_parms(r_not=1.6, intro_rate=0.1)
 }
 

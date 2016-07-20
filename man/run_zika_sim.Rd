@@ -7,7 +7,7 @@
 run_zika_sim(params)
 }
 \arguments{
-\item{params}{List of named parameters for simulation, starred parameters must be present, but suggested to call zika_def_parms() and alter according to specific run.}
+\item{params}{List of named parameters for simulation, starred parameters must be present, but suggested to call zika_def_parms() and alter parms according to specific run (See examples).}
 
 \item{infBoxes*}{Integer specifying number of infectious class boxes}
 
@@ -38,5 +38,6 @@ in "Real-time Zika Risk assessment in the United States."
 }
 \examples{
 run_zika_sim(zika_def_parms())
+run_zika_sim(zika_def_parms(r_not=0.8, intro_rate=0.1))
 }
 

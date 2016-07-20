@@ -45,7 +45,7 @@ zika_def_parms <- function(r_not = 1.1,
 #' @examples
 #' run_n_zika_sims(1, zika_def_parms())
 run_n_zika_sims <- function(num_reps, ...) {
-  rlply(.n = num_reps, .expr = run_branch_inc(...) )
+  plyr::rlply(.n = num_reps, .expr = run_zika_sim(...) )
 }
 
 #' Update state movement
