@@ -152,3 +152,69 @@
 #' }
 #' @source google maps
 "major_city_loc"
+
+#' Texas county map
+#'
+#' Spatial data for all counties in Texas, can be fortified to turn into dataframe
+#'
+#' @format A spatial dataset for all 254 Texas counties
+#' \describe{
+#'
+#' }
+#' @source
+"texas_county_shp"
+
+#' County Detection probability
+#'
+#' Figure 4a data - probability of observing x detected cases in county
+#'
+#' @format A dataframe with 1224 rows and 5 variables:
+#' \describe{
+#'   \item{r_not}{Texas county r0}
+#'   \item{disc_prob}{daily probability of being reported in simulation}
+#'   \item{intro_rate}{daily rate of introductions for simulation}
+#'   \item{detected}{Number of autochthonous reported cases}
+#'   \item{prob_detect}{probability detecting the number of detected cases}
+#'   ...
+#' }
+#' @source county simulation data
+"county_prob_detect_x"
+
+
+#' Epidemic probability for counties
+#'
+#' Figure 4b data
+#'
+#' @format A dataframe with 1332 rows and 5 variables:
+#' \describe{
+#'   \item{r_not}{Texas county r0}
+#'   \item{disc_prob}{daily probability of being reported in simulation}
+#'   \item{intro_rate}{daily rate of introductions for simulation}
+#'   \item{detected}{Number of autochthonous reported cases}
+#'   \item{prob_epidemic}{probability of an epidemic give the number of reported cases}
+#'   ...
+#' }
+#' @source county simulation data
+"county_epi_prob_by_d"
+
+#' County surveillance triggers
+#'
+#' Figure 4c data - number of reported cases necessary for each county to have 50% probability of an epidemic
+#'
+#' @format A dataframe with 149 rows and 9 variables:
+#' \describe{
+#'   \item{r_not}{Texas county r0}
+#'   \item{disc_prob}{daily probability of being reported in simulation}
+#'   \item{intro_rate}{daily rate of introductions for simulation}
+#'   \item{prev_threshold}{threshold for prevalence analysis -- not used anymore}
+#'   \item{epi_threshold}{prevalence threshold to define epidemic}
+#'   \item{confidence}{threshold probability for triggers}
+#'   \item{num_necessary}{Number of simulations necessary to reach certain number of cases to have trigger}
+#'   \item{epi_trigger}{Trigger for reported cases necssary to have 50% probability of epidemic}
+#'   \item{prev_trigger}{Trigger for prevalence -- no longer used}
+#'   ...
+#' }
+#' @source county simulation data 50% probability of an epidemic
+"exp_triggers_data"
+
+

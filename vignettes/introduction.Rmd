@@ -1,0 +1,39 @@
+---
+title: "Introduction to the rtZIKVrisk R package"
+author: "Spencer J. Fox"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to the rtZIKVrisk R package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Background
+rtZIKVrisk was created to accompany the results from our study [Real-time Zika Risk Assessment in the United States](http://biorxiv.org/content/early/2016/06/07/056648). It's meant to allow users to recreate the figures from the manuscript, and also allows for one to simulate zika epidemics with our framework and analyze the resultant outbreaks.
+
+## Installation (R)
+To install the package use the [devtools](https://cran.r-project.org/web/packages/devtools/index.html) package on CRAN.
+```r
+    install.packages("devtools")
+    
+    devtools::install_github("sjfox/rtZIKVrisk")
+```
+
+Once the package has been installed, it can be loaded with 
+
+```{r, warning=FALSE, message=FALSE, comment=FALSE}
+    library(rtZIKVrisk)
+```
+
+## Simulating Zika outbreaks
+The package allows one to simulate outbreaks according to the Zika outbreak simulation model presented in our paper, according to default parameters or other combinations. Normally we use the `run_n_zika_sims()` function to run multiple outbreaks, so let's run 10 stochastic realizations with the default parameter values.
+
+```{r}
+  set.seed(808)
+  sim_parms <- zika_def_parms()
+  outbreak_sim <- run_n_zika_sims(num_reps = 10, sim_parms)
+  plot_final_sizes(outbreak_sim)
+  #plot_outbreaks(outbreak_sim)
+  
+```
