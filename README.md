@@ -17,7 +17,7 @@ If you encounter any issues or have any questions/concerns, please don't hesitat
 
 Spencer J. Fox 
 
-- [\@FoxandtheFlu](twitter.com/FoxandtheFlu) 
+- [\@FoxandtheFlu](http://twitter.com/FoxandtheFlu) 
 
 - spncrfx@gmail.com 
 
