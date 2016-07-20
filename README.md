@@ -4,11 +4,11 @@ This is an R package create to accompany the results from our study [Real-time Z
 
 ## Installation (R)
 To install the package use the [devtools](https://cran.r-project.org/web/packages/devtools/index.html) package on CRAN.
-    
+```r
     install.packages("devtools")
     
     devtools::install_github("sjfox/rtZIKVrisk")
-
+```
 ## Vignette
 A vignette to demonstrate the capabilities is forthcoming.
 
