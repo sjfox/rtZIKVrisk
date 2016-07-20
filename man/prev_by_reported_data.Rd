@@ -12,7 +12,7 @@ Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or h
 prev_by_reported_data
 }
 \description{
-Figure 2b data
+Figure 2b data - Gives the median and 50% CI prevalence across all simulations that reach x detected cases.
 }
 \keyword{datasets}
 

@@ -82,7 +82,7 @@
 
 #' Prevalence by reported cases data
 #'
-#' Figure 2b data
+#' Figure 2b data - Gives the median and 50% CI prevalence across all simulations that reach x detected cases.
 #'
 #' @format A dataframe with 404 rows and 6 variables:
 #' \describe{
@@ -97,9 +97,9 @@
 #' @source Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or high risk group
 "prev_by_reported_data"
 
-#' Prevalence by reported cases data
+#' Epidemic probability by reported cases data
 #'
-#' Figure 2b data
+#' Figure 2c data - Gives the probability of an impending epidemic across all simulations that reach x detected cases.
 #'
 #' @format A dataframe with 404 rows and 6 variables:
 #' \describe{
@@ -112,5 +112,43 @@
 #' @source Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or high risk group
 "epi_prob_by_reported_data"
 
+#' County Risk spreadsheet
+#'
+#' Data for importation/transmission risk for all counties
+#'
+#' @format A dataframe with 254 rows and 24 variables:
+#' \describe{
+#'   \item{Metro}{Metro area that county is associated with (integer)-not used}
+#'   \item{id}{Texas County ID}
+#'   \item{Geography}{County name format 'county_name "County, Texas"'}
+#'   \item{GDP}{County GDP}
+#'   \item{importation_probability}{Probability that next imported case occurs in that county}
+#'   \item{importation.current}{Importation rate Quarter 1 for county}
+#'   \item{importation.projected}{Projected county importation rate for Quarter 3}
+#'   \item{importation.worse.projected}{Worst case county importation projection for Q3}
+#'   \item{mosquito.abundance}{Mosquito abundance for county from Kraemer 2015 global distribution data}
+#'   \item{rnott.expected.round}{Expected august r0 for county}
+#'   \item{low.round}{Low GDP effect r0 for august}
+#'   \item{high.round}{High GDP effect r0 for august}
+#'   \item{hetero.round}{Heterogeneous GDP effect for r0 for august}
+#'   \item{temperature}{Historic average county temperature for August}
+#'   \item{eip}{Extrinsic incubation period for mosquitoes at average temperature}
+#'   ...
+#' }
+#' @source Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or high risk group
+"county_risk_data"
 
-
+#' Texas Major city location
+#'
+#' Data for location of major texas cities
+#'
+#' @format A dataframe with 15 rows and 4 variables:
+#' \describe{
+#'   \item{ID}{Texas city ID number}
+#'   \item{lat}{latitude of city}
+#'   \item{lon}{longitude of city}
+#'   \item{Name}{Name of city}
+#'   ...
+#' }
+#' @source google maps
+"major_city_loc"

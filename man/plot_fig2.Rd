@@ -17,6 +17,6 @@ Plot Fig 2 from Zika risk assessment
 }
 \examples{
 plot_fig2()
-plot_fig2(panels="a")
+plot_fig2(panels="b")
 }
 

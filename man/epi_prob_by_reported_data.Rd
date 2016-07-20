@@ -3,7 +3,7 @@
 \docType{data}
 \name{epi_prob_by_reported_data}
 \alias{epi_prob_by_reported_data}
-\title{Prevalence by reported cases data}
+\title{Epidemic probability by reported cases data}
 \format{A dataframe with 404 rows and 6 variables:
 \describe{
   \item{risk_level}{risk level for simulation "High Risk" or "1.1"}
@@ -19,7 +19,7 @@ Zika epidemic simulations with R0=1.1 or high risk group, intro rate = 0.01 or h
 epi_prob_by_reported_data
 }
 \description{
-Figure 2b data
+Figure 2c data - Gives the probability of an impending epidemic across all simulations that reach x detected cases.
 }
 \keyword{datasets}
 

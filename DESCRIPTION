@@ -8,9 +8,12 @@ Description: The package simulates zika outbreaks according to the Real-time
 URL: http://github.com/sjfox/rtZIKVrisk/
 Depends:
     R (>= 3.2.4),
-    cowplot (>= 0.6.2)
+    cowplot (>= 0.6.2),
+    maptools (>= 0.8)
 Imports:
-    plyr (>= 1.8.3)
+    plyr (>= 1.8.3),
+    reshape2 (>= 1.4.1),
+    ggrepel (>= 0.5)
 License: MIT
 Encoding: UTF-8
 LazyData: true
