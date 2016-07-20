@@ -7,7 +7,7 @@
 plot_fig1()
 }
 \value{
-A
+A ggplot object with cowplot theme that contains both figure panels
 }
 \description{
 Plot Fig 1 from Zika risk assessment
