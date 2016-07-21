@@ -1,0 +1,23 @@
+Package: rtZIKVrisk
+Title: Accompanies: "Real-time risk assessment for Zika in the United States"
+Version: 0.1
+Authors@R: person("Spencer", "Fox", email = "spncrfx@gmail.com", role = c("aut", "cre"))
+Description: The package simulates zika outbreaks according to the Real-time
+    risk assessment in the United States paper, and analyzes resultant outbreak
+    simulations. Includes data and scripts to create the figures from the paper.
+URL: http://github.com/sjfox/rtZIKVrisk/
+Depends:
+    R (>= 3.2.4),
+    cowplot (>= 0.6.2),
+    maptools (>= 0.8)
+Imports:
+    plyr,
+    reshape2,
+    ggrepel
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

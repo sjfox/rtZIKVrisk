@@ -1,0 +1,64 @@
+---
+title: "Introduction to the rtZIKVrisk R package"
+author: "Spencer J. Fox"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to the rtZIKVrisk R package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Background
+rtZIKVrisk was created to accompany the results from our study [Real-time Zika Risk Assessment in the United States](http://biorxiv.org/content/early/2016/06/07/056648). It's meant to allow users to recreate the figures from the manuscript, and also allows for one to simulate zika epidemics with our framework and analyze the resultant outbreaks.
+
+## Installation (R)
+To install the package use the [devtools](https://cran.r-project.org/web/packages/devtools/index.html) package on CRAN.
+```r
+    install.packages("devtools")
+    
+    devtools::install_github("sjfox/rtZIKVrisk")
+```
+
+Once the package has been installed, it can be loaded with 
+
+```{r, warning=FALSE, message=FALSE, comment=FALSE}
+    #library(rtZIKVrisk)
+    devtools::load_all()
+```
+
+## Simulating Arbitrary outbreaks
+The package allows one to simulate outbreaks according to the Zika outbreak simulation model presented in our paper, according to default parameters or other combinations. Normally we use the `run_n_zika_sims()` function to run multiple outbreaks, so let's run 10 stochastic realizations with the default parameter values, and plot the histogram of final sizes, and the number of reported autochthonous (locally transmitted) cases.
+
+```{r, fig.width=6}
+  set.seed(808)
+  sim_parms <- zika_def_parms()
+  outbreak_sim <- run_n_zika_sims(num_reps = 10, sim_parms)
+  plot_final_sizes(outbreak_sim)
+  plot_zika_outbreaks(outbreak_sim)
+  
+```
+
+The outbreak plot looks weird right? It's supposed to show the course of all of the simulated outbreaks, however it defaults to displaying the reported autochthonous cases, which is a small fraction of cases (20% reporting rate). Let's see if we plot the total cumulative infections instead. The parameter `cases` has three possible options, "local", "total", and "all" that correspond to local reported cases, total reported cases, or all cases.
+
+```{r, fig.width=6}
+  plot_zika_outbreaks(outbreak_sim, cases = "all")
+```
+
+
+
+
+## Simulating County outbreaks
+You can also simulate county-specific outbreaks according to our best estimates. Let's say we want to see what 100 outbreaks in my home county of travis county might look like. **Disclaimer: These represent our best estimates, but may not reflect reality as there is a lot of uncertainty around all of these estimated parameters. Please see our paper for a full description of the uncertainty in the model and limitations.**
+
+```{r, fig.width=6}
+travis_parms <- get_county_parms("travis")
+travis_sims <- run_n_zika_sims(num_reps = 10, sim_parms)
+plot_final_sizes(travis_sims)
+```
+
+
+
+
+
+
