@@ -10,7 +10,8 @@ all_max_cum_infect(trials)
 \item{trials}{A list with simulated zika outbreaks. Usually utput of run_n_zika_sims()}
 }
 \value{
-A vector of all the max cumulatively infected individuals for each simulation
+A vector of all the max cumulatively infected individuals for each simulation.
+Calls \code{\link{last_cuminfect_local}}
 }
 \description{
 Get all final cumulative infected numbers from sims
