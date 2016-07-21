@@ -16,7 +16,7 @@ freq_above_thresh_vec(df, detected, cum_threshold, prev_threshold,
 
 \item{prev_threshold}{prevalence threshold for epidemic classification}
 
-\item{num_necessary}{number of trials necessary for epi classification usually 1% of trials}
+\item{num_necessary}{number of trials necessary for epi classification usually 1\% of trials.}
 }
 \value{
 A vector of epidemic probs for the given detected values.

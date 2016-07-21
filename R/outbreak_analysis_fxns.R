@@ -81,7 +81,7 @@ get_cumcases_by_detects_all <- function(trials, max_detect){
 #' @param detected single integer number of interest
 #' @param cum_threshold cumulative threhold for epidemic classification
 #' @param prev_threshold prevalence threshold for epidemic classification
-#' @param num_necessary number of trials necessary for epi classification usually 1% of trials
+#' @param num_necessary number of trials necessary for epi classification usually 1\% of trials.
 #'
 #' @return a single probability of epidemic for single detected value.
 freq_above_thresh <- function(df, detected, cum_threshold, prev_threshold, num_necessary){
@@ -114,13 +114,14 @@ freq_above_thresh_vec <- Vectorize(freq_above_thresh, vectorize.args = "detected
 #' @param prev_threshold The maximum autochthonous prevalence necessary to be classifed as an epidemic - depends on individual scenario run values
 #' @param cum_threshold The cumulative autochthonous infections necessary to be classified as an epidemic - usually the e_thresh value of the runs
 #' @param max_detect The maximum number of detections to go to.
-#' @param num_necessary Number of instances of trials to be necessary before it gets a probability. Usually want to be ~1% of total runs
+#' @param num_necessary Number of instances of trials to be necessary before it gets a probability. Usually want to be ~1\% of total runs
 #'
 #' @return A dataframe of rows max_detect+1 that has column for detected, and column for prob_epidemic given that detected number
 #' @export
 #' @examples
+#' \dontrun{
 #' get_epidemic_prob_by_d(trials, 5, 100, 15, 1)
-#'
+#' }
 get_epidemic_prob_by_d <- function(trials, prev_threshold, cum_threshold, max_detect=50, num_necessary=1){
   detected <- seq(0, max_detect)
   ## Gets the number of cumulative cases for each run for each unique detected.

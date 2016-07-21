@@ -15,7 +15,7 @@ freq_above_thresh(df, detected, cum_threshold, prev_threshold, num_necessary)
 
 \item{prev_threshold}{prevalence threshold for epidemic classification}
 
-\item{num_necessary}{number of trials necessary for epi classification usually 1% of trials}
+\item{num_necessary}{number of trials necessary for epi classification usually 1\% of trials.}
 }
 \value{
 a single probability of epidemic for single detected value.

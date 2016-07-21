@@ -16,7 +16,7 @@ get_epidemic_prob_by_d(trials, prev_threshold, cum_threshold, max_detect = 50,
 
 \item{max_detect}{The maximum number of detections to go to.}
 
-\item{num_necessary}{Number of instances of trials to be necessary before it gets a probability. Usually want to be ~1% of total runs}
+\item{num_necessary}{Number of instances of trials to be necessary before it gets a probability. Usually want to be ~1\% of total runs}
 }
 \value{
 A dataframe of rows max_detect+1 that has column for detected, and column for prob_epidemic given that detected number
@@ -25,7 +25,8 @@ A dataframe of rows max_detect+1 that has column for detected, and column for pr
 Get the epidemic probability as a function of number of reported cases
 }
 \examples{
+\dontrun{
 get_epidemic_prob_by_d(trials, 5, 100, 15, 1)
-
+}
 }
 

@@ -23,7 +23,8 @@ To install the package use the [devtools](https://cran.r-project.org/web/package
 Once the package has been installed, it can be loaded with 
 
 ```{r, warning=FALSE, message=FALSE, comment=FALSE}
-    library(rtZIKVrisk)
+    #library(rtZIKVrisk)
+    devtools::load_all()
 ```
 
 ## Simulating Arbitrary outbreaks
