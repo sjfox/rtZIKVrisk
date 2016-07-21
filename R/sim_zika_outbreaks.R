@@ -193,6 +193,7 @@ track_infectious <- function(UI, recov_prob, disc_prob){
 #' @param dis_prob_asymp* Probability of discovery for asymptomatic individuals
 #' @param intro_rate* Daily rate of new introductions according to poisson distribution
 #' @return Returns a dataframe that contains the daily evolution of the model compartments
+#' @export
 #' @examples
 #' run_zika_sim(zika_def_parms())
 #' run_zika_sim(zika_def_parms(r_not=0.8, intro_rate=0.1))
