@@ -12,7 +12,7 @@ plot_zika_outbreaks(trials, cases = "local")
 \item{cases}{A string dictating what to plot c("local", "total", "all")}
 }
 \value{
-A ggplot object with cowplot theme final size histogram
+A ggplot object with cowplot theme outbreak curves
 }
 \description{
 Plots the cumulative autochthonously infected individuals for all outbreaks simulated

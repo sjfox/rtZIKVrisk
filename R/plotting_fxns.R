@@ -11,7 +11,7 @@
 #' plot_final_sizes(sims)
 plot_final_sizes <- function(trials){
   final.sizes <- all_max_cum_infect(trials)
-  qplot(final.sizes, geom="histogram") +
+  qplot(final.sizes, geom="histogram", bins=30) +
     scale_y_continuous(expand=c(0,0)) +
     scale_x_continuous(expand=c(0,0))+
     labs(x = "Final Outbreak Sizes")
@@ -23,7 +23,7 @@ plot_final_sizes <- function(trials){
 #'
 #' @param trials A list with simulated zika outbreaks. Usually utput of run_n_zika_sims()
 #' @param cases A string dictating what to plot c("local", "total", "all")
-#' @return A ggplot object with cowplot theme final size histogram
+#' @return A ggplot object with cowplot theme outbreak curves
 #' @export
 #' @import cowplot
 #' @examples
@@ -47,4 +47,29 @@ plot_zika_outbreaks <- function(trials, cases="local"){
     labs(x = "Time (days)",
          y = ylabel)
 }
+
+
+#' Plot epidemic risk
+#'
+#' Plots the probability of an epidemic as a function of the number of reported local cases
+#'
+#' @param df A dataframe that is the output of \code{\link{get_epidemic_prob_by_d}}
+#' @param max_detect The maximum number of cases to plot on the x-axis
+#' @return A ggplot object with cowplot theme final size histogram
+#' @export
+#' @import cowplot
+#' @examples
+#' travis_parms <- get_county_parms("travis")
+#' travis_sims <- run_n_zika_sims(num_reps = 1000, sim_parms)
+#' travis_epi_prob <- get_epidemic_prob_by_d(travis_sims, prev_threshold = 10, cum_threshold = 100)
+#' plot_epi_prob(travis_epi_prob)
+plot_epi_prob <- function(df, max_detect=10){
+
+  suppressWarnings(ggplot(df, aes(detected, prob_epidemic)) +
+    coord_cartesian(ylim=c(0,1), xlim = c(0, max_detect))+
+    geom_line(size=1, color="red") +
+    labs(x = "Reported Cases", y = "Epidemic Probability")+
+    background_grid(major="xy"))
+}
+
 

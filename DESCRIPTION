@@ -11,9 +11,9 @@ Depends:
     cowplot (>= 0.6.2),
     maptools (>= 0.8)
 Imports:
-    plyr,
-    reshape2,
-    ggrepel
+    plyr (>= 1.8.4),
+    reshape2 (>= 1.4.1),
+    ggrepel (>= 0.5)
 License: MIT
 Encoding: UTF-8
 LazyData: true

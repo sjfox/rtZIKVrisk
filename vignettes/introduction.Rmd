@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ## Background
-rtZIKVrisk was created to accompany the results from our study [Real-time Zika Risk Assessment in the United States](http://biorxiv.org/content/early/2016/06/07/056648). It's meant to allow users to recreate the figures from the manuscript, and also allows for one to simulate zika epidemics with our framework and analyze the resultant outbreaks.
+rtZIKVrisk was created to accompany the results from our study [Real-time Zika Risk Assessment in the United States](http://biorxiv.org/content/early/2016/06/07/056648). It's meant to allow users to recreate the figures from the manuscript, and also allows for one to simulate and analyze stochastic zika outbreaks with our framework. Our simulation model is meant to simulate the early stages of an outbreak, and doesn't include an epidemic slowdown do to herd immunity. For this reason outbreaks either die out or grow forever (we have a case cut off for when we stop the simulation). We call outbreaks that "grow forever" epidemics, and use the frequency with which that happens to understand the epidemic risk for counties in Texas.
 
 ## Installation (R)
 To install the package use the [devtools](https://cran.r-project.org/web/packages/devtools/index.html) package on CRAN.
@@ -27,35 +27,76 @@ Once the package has been installed, it can be loaded with
     devtools::load_all()
 ```
 
-## Simulating Arbitrary outbreaks
-The package allows one to simulate outbreaks according to the Zika outbreak simulation model presented in our paper, according to default parameters or other combinations. Normally we use the `run_n_zika_sims()` function to run multiple outbreaks, so let's run 10 stochastic realizations with the default parameter values, and plot the histogram of final sizes, and the number of reported autochthonous (locally transmitted) cases.
+## Replicating Manuscript Figures
+First and foremost, the package is meant to allow the user to recreate the figures from the manuscript. We have therefore provided the data and code necessary to plot the final figures using `plot_figX()` functions, where the X is 1-4. So we can plot figure 3, which shows (a) county importation risk and (b) county local transmission risk like this:
 
-```{r, fig.width=6}
-  set.seed(808)
-  sim_parms <- zika_def_parms()
-  outbreak_sim <- run_n_zika_sims(num_reps = 10, sim_parms)
-  plot_final_sizes(outbreak_sim)
-  plot_zika_outbreaks(outbreak_sim)
-  
+```{r, fig.width=8, fig.height=5, cache=TRUE}
+plot_fig3()
 ```
 
-The outbreak plot looks weird right? It's supposed to show the course of all of the simulated outbreaks, however it defaults to displaying the reported autochthonous cases, which is a small fraction of cases (20% reporting rate). Let's see if we plot the total cumulative infections instead. The parameter `cases` has three possible options, "local", "total", and "all" that correspond to local reported cases, total reported cases, or all cases.
+Oftentimes, I find that I don't want the full panel of figures for future talks, so you can also extract specific panels from all of the figures using the `panels` argument in the function. Simply specify the letter panel desired, and the corresponding plot will be returned.
+
+```{r, fig.width=4, fig.height=5, cache=TRUE}
+plot_fig3(panels="a")
+```
+
+## Simulating Arbitrary outbreaks
+The package also allows one to simulate outbreaks according to the Zika outbreak simulation model presented in our paper, according to default parameters or other combinations. Normally we use the `run_n_zika_sims()` function to run multiple outbreaks, so let's run 10 stochastic realizations with the default parameter values, and plot the histogram of final sizes, and the number of reported autochthonous (locally transmitted) cases.
+
+```{r, fig.width=6, cache=TRUE}
+  set.seed(808)
+  sim_parms <- zika_def_parms()
+  outbreak_sim <- run_n_zika_sims(num_reps = 100, sim_parms)
+```
+
+We can now plot the histogram of final outbreak sizes. We stop the simulation when the outbreak reaches 100 individuals by default.
+
+```{r, fig.width=6}
+  plot_final_sizes(outbreak_sim)
+```
+
+So what do the stochastic outbreak realizations actually look like?
+
+```{r, fig.width=6}
+  plot_zika_outbreaks(outbreak_sim)
+```
+
+Those outbreaks looks weird right? It's supposed to show the course of all of the simulated outbreaks, however it defaults to displaying the reported autochthonous cases, which is a small fraction of cases. Let's see if we plot the total cumulative infections instead. The parameter `cases` has three possible options, "local", "total", and "all" that correspond to local reported cases, total reported cases, or all cases.
 
 ```{r, fig.width=6}
   plot_zika_outbreaks(outbreak_sim, cases = "all")
 ```
+There, now you can see which outbreaks reached our case cutoff before dying out.
+
+It's also extremely easy to change the default simulation parameters (see the documentation for all parameter options). Like for example, let's say we wanted to simulate a much worse epidemic with a larger transmission risk ($R_0$).
+
+```{r, fig.width=6, cache=TRUE}
+  high_risk_parms <- zika_def_parms(r_not=3)
+  high_risk_outbreak_sim <- run_n_zika_sims(num_reps = 100, high_risk_parms)
+  plot_final_sizes(high_risk_outbreak_sim)
+  
+```
+
+You can see that the outbreaks don't get larger (we terminate outbreaks when there are 100 cumulative cases), but the frequency of times the outbreaks reach the final size drastically changes.
 
 
+## Simulating County-specific outbreaks
+Finally, it's also easy to simulate county-specific outbreaks according to our best estimates. Let's say we want to see what 1000 outbreaks in travis county (home of my current city, Austin) might look like. **Disclaimer: These represent our best estimates, but may not reflect reality as there is a lot of uncertainty around all of these estimated parameters. Please see our paper for a full description of the uncertainty in the model and limitations.**
 
-
-## Simulating County outbreaks
-You can also simulate county-specific outbreaks according to our best estimates. Let's say we want to see what 100 outbreaks in my home county of travis county might look like. **Disclaimer: These represent our best estimates, but may not reflect reality as there is a lot of uncertainty around all of these estimated parameters. Please see our paper for a full description of the uncertainty in the model and limitations.**
-
-```{r, fig.width=6}
+```{r, fig.width=6, cache=TRUE}
 travis_parms <- get_county_parms("travis")
-travis_sims <- run_n_zika_sims(num_reps = 10, sim_parms)
+travis_sims <- run_n_zika_sims(num_reps = 1000, sim_parms)
 plot_final_sizes(travis_sims)
 ```
+
+It's a bit hard to actually visualize all 1,000 outbreaks together with `plot_zika_outbreaks()` and that doesn't really help us understand county risk. As these outbreaks occur, cases have a probability of being reported, which can be thought of as being added to the Zika case tally public health officials keep. Our framework allows public health officials to diagnose the epidemic risk as a function of the number of cases (autochthonous only) that have been reported. To do that, we can use the function `get_epidemic_prob_by_d()`, which calculates the epidemic risk as a function of cases, and then we can plot with `plot_epi_prob()`. However, the choice of parameters for `get_epidemic_prob_by_d()`, can be very important for understanding the epidemic probability, so `prev_threshold`, `cum_threshold`, and `num_necessary` should be chosen intelligently, and it can take some time to play around with to get reasonable results.
+
+```{r, fig.width=5, cache=TRUE}
+travis_epi_prob <- get_epidemic_prob_by_d(travis_sims, prev_threshold = 10, cum_threshold = 100)
+plot_epi_prob(travis_epi_prob)
+```
+
+So we can see that if there are two autochthonous clustered cases in Travis county, our framework would estimates that there is just under a 50\% chance of an epidemic. That being said, these results don't incorporate the public health response that would occur upon seeing 2 cases in travis county, but rather should be used to help quantify the risk in various Texas counties if local transmission occurs.
 
 
 

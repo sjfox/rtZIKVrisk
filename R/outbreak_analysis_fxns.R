@@ -57,7 +57,7 @@ cumcases_by_detects <- function(df, max_detect){
 
   unique_detects <- unique_detects[unique_detects<=max_detect]
 
-  data.frame(detected = unique_detects, cum_infections = last_cuminfect_local_value(df), max_prevalence = max_local_prev(df))
+  data.frame(detected = unique_detects, cum_infections = last_cuminfect_local(df), max_prevalence = max_local_prev(df))
 }
 
 #' Get all cumcases and prevalence by detects

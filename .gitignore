@@ -2,3 +2,4 @@
 .Rhistory
 .Rdata
 inst/doc
+vignettes/introduction_cache/html
