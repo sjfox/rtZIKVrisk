@@ -3,3 +3,4 @@
 .Rdata
 inst/doc
 vignettes/introduction_cache/html
+vignettes/introduction_files

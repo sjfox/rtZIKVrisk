@@ -65,11 +65,11 @@ plot_zika_outbreaks <- function(trials, cases="local"){
 #' plot_epi_prob(travis_epi_prob)
 plot_epi_prob <- function(df, max_detect=10){
 
-  suppressWarnings(ggplot(df, aes(detected, prob_epidemic)) +
+  ggplot(df, aes(detected, prob_epidemic)) +
     coord_cartesian(ylim=c(0,1), xlim = c(0, max_detect))+
     geom_line(size=1, color="red") +
     labs(x = "Reported Cases", y = "Epidemic Probability")+
-    background_grid(major="xy"))
+    background_grid(major="xy")
 }
 
 
