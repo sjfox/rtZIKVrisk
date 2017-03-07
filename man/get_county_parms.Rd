@@ -4,14 +4,12 @@
 \alias{get_county_parms}
 \title{Get County-specific parameters}
 \usage{
-get_county_parms(county, worst_case = FALSE, ...)
+get_county_parms(county, rnot_bound = "median", ...)
 }
 \arguments{
-\item{county}{Integer or character string identifying either the county id number or the county name}
+\item{county}{Integer or character string identifying either the county id number or the county name#' @param ... Function can take any other arguments to zika_def_parms}
 
-\item{worst_case}{Boolean describing whether to use the worst-case importation rate estimates or the expected}
-
-\item{...}{Function can take any other arguments to zika_def_parms}
+\item{rnot_bound}{string specifying which Rnot is desired ("lower", "median", or "upper")}
 }
 \value{
 A list of length num_reps, where each component is a single call to run_zika_sim.
@@ -24,4 +22,3 @@ get_county_parms("travis")
 get_county_parms(15)
 get_county_parms("travis", e_thresh=1000)
 }
-

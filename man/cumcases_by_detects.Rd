@@ -17,4 +17,3 @@ the maximum cumulative cases and max prevalence for each unique detection
 \description{
 Cumulative cases for detects for single simulation run
 }
-

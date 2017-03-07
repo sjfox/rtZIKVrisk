@@ -29,4 +29,3 @@ Get the epidemic probability as a function of number of reported cases
 get_epidemic_prob_by_d(trials, 5, 100, 15, 1)
 }
 }
-

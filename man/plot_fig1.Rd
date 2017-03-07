@@ -18,4 +18,3 @@ Plot Fig 1 from Zika risk assessment
 \examples{
 plot_fig1()
 }
-

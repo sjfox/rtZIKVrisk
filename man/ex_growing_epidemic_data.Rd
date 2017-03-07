@@ -21,4 +21,3 @@ ex_growing_epidemic_data
 Figure 1 data
 }
 \keyword{datasets}
-

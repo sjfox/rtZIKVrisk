@@ -23,4 +23,3 @@ a single probability of epidemic for single detected value.
 \description{
 Returns the frequency that cases were found to be above a threshold.
 }
-

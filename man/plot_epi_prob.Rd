@@ -23,4 +23,3 @@ travis_sims <- run_n_zika_sims(num_reps = 1000, sim_parms)
 travis_epi_prob <- get_epidemic_prob_by_d(travis_sims, prev_threshold = 10, cum_threshold = 100)
 plot_epi_prob(travis_epi_prob)
 }
-

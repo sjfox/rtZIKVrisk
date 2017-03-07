@@ -23,4 +23,3 @@ plot_fig4(panels="a")
 fig4 <- plot_fig4()
 save_plot("fig4.pdf", fig4, base_aspect_ratio = 3, base_height=5)
 }
-

@@ -24,4 +24,3 @@ A vector of epidemic probs for the given detected values.
 \description{
 Called from the get_epidemic_prob_by_d
 }
-

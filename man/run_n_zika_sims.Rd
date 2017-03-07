@@ -20,4 +20,3 @@ A function to run multiple zika simulations with the same parameters
 \examples{
 run_n_zika_sims(1, zika_def_parms())
 }
-

@@ -33,4 +33,3 @@ county_risk_data
 Data for importation/transmission risk for all counties
 }
 \keyword{datasets}
-

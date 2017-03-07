@@ -24,4 +24,3 @@ prev_by_reported_data
 Figure 2b data - Gives the median and 50% CI prevalence across all simulations that reach x detected cases.
 }
 \keyword{datasets}
-

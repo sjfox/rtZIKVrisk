@@ -18,4 +18,3 @@ Get single maximum of local prevalence
 \examples{
 
 }
-

@@ -22,4 +22,3 @@ major_city_loc
 Data for location of major texas cities
 }
 \keyword{datasets}
-

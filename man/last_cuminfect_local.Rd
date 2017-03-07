@@ -18,4 +18,3 @@ Get single final cumulative infected numbers from sims
 \examples{
 
 }
-

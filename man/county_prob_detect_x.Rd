@@ -23,4 +23,3 @@ county_prob_detect_x
 Figure 4a data - probability of observing x detected cases in county
 }
 \keyword{datasets}
-

@@ -18,4 +18,3 @@ Returns cumulative vector of locally detected cases
 \examples{
 
 }
-

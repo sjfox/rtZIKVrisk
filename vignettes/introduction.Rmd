@@ -65,6 +65,7 @@ Those outbreaks looks weird right? It's supposed to show the course of all of th
 ```{r, fig.width=6}
   plot_zika_outbreaks(outbreak_sim, cases = "all")
 ```
+
 There, now you can see which outbreaks reached our case cutoff before dying out.
 
 It's also extremely easy to change the default simulation parameters (see the documentation for all parameter options). Like for example, let's say we wanted to simulate a much worse epidemic with a larger transmission risk ($R_0$).

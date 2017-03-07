@@ -20,4 +20,3 @@ A function that calculates how many individuals transition out of a state
 \examples{
 update_state(100, 0.3)
 }
-

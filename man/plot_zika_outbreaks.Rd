@@ -21,4 +21,3 @@ Plots the cumulative autochthonously infected individuals for all outbreaks simu
 sims <- run_n_zika_sims(100, zika_def_parms())
 plot_zika_outbreaks(sims)
 }
-

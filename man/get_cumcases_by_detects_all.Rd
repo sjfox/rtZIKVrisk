@@ -17,4 +17,3 @@ a single probability of epidemic for single detected value
 \description{
 Vectorized version of \code{\link{cumcases_by_detects}}, to get all trial information.
 }
-

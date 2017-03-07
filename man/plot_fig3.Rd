@@ -19,4 +19,3 @@ Plot Fig 3 from Zika risk assessment
 plot_fig3()
 plot_fig3(panels="a")
 }
-

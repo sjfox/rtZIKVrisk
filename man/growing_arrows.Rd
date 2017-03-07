@@ -21,4 +21,3 @@ growing_arrows
 Figure 1 data
 }
 \keyword{datasets}
-

@@ -18,4 +18,3 @@ texas_county_shp
 Spatial data for all counties in Texas, can be fortified to turn into dataframe
 }
 \keyword{datasets}
-

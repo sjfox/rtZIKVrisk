@@ -19,4 +19,3 @@ Plot histogram of the final sizes of zika outbreaks
 sims <- run_n_zika_sims(100, zika_def_parms())
 plot_final_sizes(sims)
 }
-

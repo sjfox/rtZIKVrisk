@@ -20,4 +20,3 @@ A vectorized function of update_state()
 \examples{
 update_states(c(50,100,20,30), 0.3)
 }
-

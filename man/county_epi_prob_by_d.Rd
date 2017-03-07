@@ -23,4 +23,3 @@ county_epi_prob_by_d
 Figure 4b data
 }
 \keyword{datasets}
-

@@ -33,4 +33,3 @@ ex_outbreak_sims
 Figure 2a data
 }
 \keyword{datasets}
-

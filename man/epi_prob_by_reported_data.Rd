@@ -22,4 +22,3 @@ epi_prob_by_reported_data
 Figure 2c data - Gives the probability of an impending epidemic across all simulations that reach x detected cases.
 }
 \keyword{datasets}
-

@@ -38,9 +38,8 @@ zika_def_parms <- function(r_not = 1.1,
 #'
 #' A function that finds the correct parameters for a specified county to be used for zika outbreak simulations
 #'
-#' @param county Integer or character string identifying either the county id number or the county name
-#' @param worst_case Boolean describing whether to use the worst-case importation rate estimates or the expected
-#' @param ... Function can take any other arguments to zika_def_parms
+#' @param county Integer or character string identifying either the county id number or the county name#' @param ... Function can take any other arguments to zika_def_parms
+#' @param rnot_bound string specifying which Rnot is desired ("lower", "median", or "upper")
 #' @inheritParams zika_def_parms
 #' @return A list of length num_reps, where each component is a single call to run_zika_sim.
 #' @export
@@ -48,7 +47,7 @@ zika_def_parms <- function(r_not = 1.1,
 #' get_county_parms("travis")
 #' get_county_parms(15)
 #' get_county_parms("travis", e_thresh=1000)
-get_county_parms <- function(county, worst_case=FALSE, ... ){
+get_county_parms <- function(county, rnot_bound = "median", ... ){
   if(is.numeric(county)){
     if(county>254 | county<1) stop("County index is out of bounds")
     county_ind <- match(county, table = county_risk_data$id)
@@ -60,7 +59,7 @@ get_county_parms <- function(county, worst_case=FALSE, ... ){
   } else if(is.character(county)) {
 
     # send everything tolower, for easer matching
-    county_ind <- grep(tolower(county), tolower(county_risk_data$Geography))
+    county_ind <- grep(tolower(county), tolower(county_risk_data$county))
 
     # If no matches or more than one, then throw an error
     if(length(county_ind) == 0){
@@ -72,11 +71,14 @@ get_county_parms <- function(county, worst_case=FALSE, ... ){
     stop("invalid county type")
   }
 
-  r_not <- county_risk_data$rnott.expected.round[county_ind]
-  import_rate <- ifelse(identical(worst_case, FALSE), county_risk_data$importation.projected[county_ind],
-                                                      county_risk_data$importation.worse.projected[county_ind])
+  # r_not <- county_risk_data$rnott.expected.round[county_ind]
+  import_rate <- county_risk_data$importation.projected[county_ind]
 
-
+  r_not <- switch(rnot_bound,
+               lower = county_risk_data$low[county_ind],
+               median = county_risk_data$median[county_ind],
+               high = county_risk_data$high[county_ind],
+               stop("rnot_bound not specified properly"))
   if("r_not" %in% names(list(...)) & "intro_rate" %in% names(list(...))){
     warning("You are defining r_not and intro_rate explicitly, which will override both county-specific values.")
     zika_def_parms(...)

@@ -43,4 +43,3 @@ Defaults to parameters for Zika with no introductions.
 zika_def_parms()
 zika_def_parms(r_not=1.6, intro_rate=0.1)
 }
-

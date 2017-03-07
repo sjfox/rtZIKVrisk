@@ -27,4 +27,3 @@ exp_triggers_data
 Figure 4c data - number of reported cases necessary for each county to have 50% probability of an epidemic
 }
 \keyword{datasets}
-

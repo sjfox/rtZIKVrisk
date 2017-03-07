@@ -24,4 +24,3 @@ can recover and be reported in the same time period
 \examples{
 track_infectious(c(10,50,20), 0.3, 0.5)
 }
-
