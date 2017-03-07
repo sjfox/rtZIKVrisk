@@ -30,13 +30,13 @@ Once the package has been installed, it can be loaded with
 First and foremost, the package is meant to allow the user to recreate the figures from the manuscript. We have therefore provided the data and code necessary to plot the final figures using `plot_figX()` functions, where the X is 1-4. So we can plot figure 3, which shows (a) county importation risk and (b) county local transmission risk like this:
 
 ```{r, fig.width=8, fig.height=4, cache=TRUE}
-plot_fig3()
+plot_fig2()
 ```
 
 Oftentimes, I find that I don't want the full panel of figures for future talks, so you can also extract specific panels from all of the figures using the `panels` argument in the function. Simply specify the letter panel desired, and the corresponding plot will be returned.
 
 ```{r, fig.width=4, fig.height=4, cache=TRUE}
-plot_fig3(panels="a")
+plot_fig2(panels="a")
 ```
 
 ## Simulating Arbitrary outbreaks
