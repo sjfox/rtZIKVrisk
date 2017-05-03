@@ -77,7 +77,7 @@ plot_fig2 <- function(panels=NULL){
     ggrepel::geom_text_repel(data = city_data, aes(x=lon, y = lat, label = Name), size = 5,  force=0.75, segment.color = "black")+
     theme_cowplot() %+replace% theme(strip.background=element_blank(),
                                      strip.text.x = element_blank(),
-                                     legend.position = c(0.2, 0.17),
+                                     legend.position = c(0.0, 0.17),
                                      legend.title.align = 0.5) +
     guides(fill = guide_colorbar(label.position = "bottom", title.position="top",direction = "horizontal", barwidth = 10))
 
@@ -95,7 +95,7 @@ plot_fig2 <- function(panels=NULL){
     scale_fill_continuous(name = "Relative Transmission Risk", low = "white", high = "darkgreen", na.value = "white") +
     theme_cowplot() %+replace% theme(strip.background=element_blank(),
                                      strip.text.x = element_blank(),
-                                     legend.position = c(0.2, 0.17),
+                                     legend.position = c(0.0, 0.17),
                                      legend.title.align = 0.5) +
     guides(fill = guide_colorbar(label.position = "bottom", title.position="top",direction = "horizontal", barwidth = 10), color = FALSE, size=FALSE)
 
@@ -207,7 +207,7 @@ plot_fig4 <- function(panels=NULL){
     theme_cowplot() %+replace% theme(strip.background=element_blank(),
                                      strip.text.x = element_blank(),
                                      legend.title.align = 0.5,
-                                     legend.position = c(0.2, 0.17)) +
+                                     legend.position = c(0.0, 0.17)) +
     guides(fill = guide_colorbar(label.position = "bottom", title.position="top",direction = "horizontal", barwidth = 10))
 
   if(!is.null(panels) & identical(tolower(panels), "a")){
@@ -229,7 +229,7 @@ plot_fig4 <- function(panels=NULL){
     theme_cowplot() %+replace% theme(strip.background=element_blank(),
                                      strip.text.x = element_blank(),
                                      legend.title.align = 0.5,
-                                     legend.position = c(0.2, 0.17)) +
+                                     legend.position = c(0.0, 0.17)) +
     guides(fill = guide_colorbar(label.position = "bottom", title.position="top",direction = "horizontal", barwidth = 10))
 
   if(!is.null(panels) & identical(tolower(panels), "b")){
@@ -252,7 +252,7 @@ plot_fig4 <- function(panels=NULL){
     theme_cowplot() %+replace% theme(strip.background=element_blank(),
                                      strip.text.x = element_blank(),
                                      legend.title.align = 0.5,
-                                     legend.position=c(0.2, 0.17)) +
+                                     legend.position=c(0.0, 0.17)) +
     guides(fill = guide_colorbar(label.position = "bottom", title.position="top",direction = "horizontal", barwidth = 10))
 
   if(!is.null(panels) & identical(tolower(panels), "c")){
