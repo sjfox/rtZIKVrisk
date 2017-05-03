@@ -10,7 +10,7 @@ To install the package use the [devtools](https://cran.r-project.org/web/package
     devtools::install_github("sjfox/rtZIKVrisk")
 ```
 ## Vignette
-For an introduction to the package please check out the [vignette](http://htmlpreview.github.io/?https://github.com/sjfox/rtZIKVrisk/blob/master/vignettes/introduction.html).
+For an introduction to the package please check out the [vignette](http://htmlpreview.github.io/?https://github.com/sjfox/rtZIKVrisk/blob/master/inst/doc/introduction.html).
 
 ## Contact
 If you encounter any issues or have any questions/concerns, please don't hesitate to contact me:
